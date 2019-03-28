@@ -30,18 +30,26 @@
 
 package com.amazon.opendistroforelasticsearch.security.ssl;
 
-import io.netty.handler.ssl.OpenSsl;
-
 import java.util.HashSet;
+import java.util.Random;
 import java.util.Set;
 
+import org.elasticsearch.action.admin.cluster.health.ClusterHealthRequest;
+import org.elasticsearch.action.admin.cluster.health.ClusterHealthResponse;
+import org.elasticsearch.action.admin.cluster.node.info.NodesInfoRequest;
 import org.elasticsearch.common.settings.Settings;
+import org.elasticsearch.common.unit.TimeValue;
+import org.elasticsearch.node.Node;
+import org.elasticsearch.node.PluginAwareNode;
+import org.elasticsearch.transport.Netty4Plugin;
 import org.junit.Assert;
 import org.junit.Assume;
 import org.junit.Before;
 import org.junit.Test;
 
 import com.amazon.opendistroforelasticsearch.security.ssl.util.SSLConfigConstants;
+
+import io.netty.handler.ssl.OpenSsl;
 
 public class OpenSSLTest extends SSLTest {
 
